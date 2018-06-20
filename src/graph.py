@@ -25,7 +25,7 @@ graph = GraphRenderer()
 
 graph.node_renderer.data_source.add(node_indices, 'index')
 graph.node_renderer.data_source.add(debug_pallete, 'color')
-graph.node_renderer.glyph = Oval(height=0.1, width=0.2, fill_color='color')
+graph.node_renderer.glyph = Oval(height=10, width=10, fill_color='color')
 
 graph.edge_renderer.data_source.data = dict(
     start=[0]*N,
@@ -33,9 +33,11 @@ graph.edge_renderer.data_source.data = dict(
 
 ### start of layout code
 #looks like this is setting the position of the vertexes 
-circ = [i*2*math.pi/N for i in node_indices]
-x = [math.cos(i) for i in circ]
-y = [math.sin(i) for i in circ]
+# circ = [i*2*math.pi/N for i in node_indices]
+x = [vertexes.pos['x'] for vertexes in old_data.vertexes]
+y = [vertexes.pos['y'] for vertexes in old_data.vertexes]
+
+
 
 graph_layout = dict(zip(node_indices, zip(x, y)))
 graph.layout_provider = StaticLayoutProvider(graph_layout=graph_layout)
