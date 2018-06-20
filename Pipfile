@@ -4,6 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+python-dateutil = "*"
+pyyaml = "*"
+numpy = "*"
+packaging = "*"
+six = "*"
+tornado = "*"
 
 [dev-packages]
 
